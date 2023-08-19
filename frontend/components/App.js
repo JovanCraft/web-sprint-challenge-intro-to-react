@@ -21,20 +21,40 @@ function App() {
   }
   const [combinedData, setCombinedData] = useState([])
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const characterResponse = await axios.get('http://localhost:9009/api/people');
-        const homeworldResponse = await axios.get('http://localhost:9009/api/planets');
+    // const fetchData = async () => {
+    //   try {
+    //     const characterResponse = await axios.get('http://localhost:9009/api/people');
+    //     const homeworldResponse = await axios.get('http://localhost:9009/api/planets');
 
-        const characters = characterResponse.data;
-        const homeworlds = homeworldResponse.data;
+    //     const characters = characterResponse.data;
+    //     const homeworlds = homeworldResponse.data;
 
-        const combinedData = combineData(characters, homeworlds);
-        setCombinedData(combinedData);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
+    //     const combinedData = combineData(characters, homeworlds);
+    //     setCombinedData(combinedData);
+    //   } catch (err) {
+    //     console.log(err.message);
+    //   }
+    // };
+    // fetchData()
+    function fetchData(){
+      axios.get(urlPeople)
+      .then(characterRes => {
+        return axios.get(urlPlanets)
+          .then(homeworldRes => {
+            const characters = characterRes.data
+            const homeworlds = homeworldRes.data
+
+            const combinedData = combineData(characters, homeworlds)
+            setCombinedData(combinedData)
+          })
+          .catch(err => {
+            console.log(err.message)
+          })
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
+    }
     fetchData()
   }, [])
   return (
