@@ -11,9 +11,19 @@ function Character({ character }) { // ❗ Add the props
   return (
     <div className='character-card' onClick={toggle}>
       {/* Use the same markup with the same attributes as in the mock */}
+      <h3 className='character-name'>{character.name}</h3>
+
       {homeWorldShow && (
         <p>
-          Homeworld: {character.homeworld.name}
+          Planet: {character.homeworld.name}<br />
+          ID: {character.id}<br />
+          Birth Year: {character.birth_year}<br />
+          Eye Color: {character.eye_color}<br />
+          Gender: {character.gender}<br />
+          Hair Color: {character.hair_color}<br />
+          Height: {character.height}<br />
+          Mass: {character.mass}<br />
+          Skin Color: {character.skin_color}<br />
         </p>
       )}
     </div>
