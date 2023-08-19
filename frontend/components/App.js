@@ -31,8 +31,8 @@ function App() {
 
         const combinedData = combineData(characters, homeworlds);
         setCombinedData(combinedData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
+      } catch (err) {
+        console.log(err.message);
       }
     };
     fetchData()
@@ -43,9 +43,9 @@ function App() {
       <p>See the README of the project for instructions on completing this challenge</p>
       {/* ❗ Map over the data in state, rendering a Character at each iteration */}
       {
-        combinedData.map(character => {
+        combinedData.map(character => (
           <Character key={character.id} character={character}/>
-        })
+        ))
       }
     </div>
   )
