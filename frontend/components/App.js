@@ -7,6 +7,7 @@ const urlPeople = 'http://localhost:9009/api/people'
 
 function App() {
   // ❗ Create state to hold the data from the API
+  const [data, setData] = useState([])
   // ❗ Create effects to fetch the data and put it in state
   return (
     <div>
