@@ -14,7 +14,7 @@ function Character({ character }) { // ❗ Add the props
       <h3 className='character-name'>{character.name}</h3>
 
       {homeWorldShow && (
-        <p>
+        <p className='character-planet'>
           Planet: {character.homeworld.name}<br />
           ID: {character.id}<br />
           Birth Year: {character.birth_year}<br />
