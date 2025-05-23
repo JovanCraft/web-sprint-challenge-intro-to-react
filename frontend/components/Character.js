@@ -31,3 +31,4 @@ function Character({ character }) { // ❗ Add the props
 }
 
 export default Character
+
